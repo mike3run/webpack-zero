@@ -42,6 +42,10 @@ const common = {
         test: /\.css$/,
         loaders: ['style', 'css'],
         include: PATHS.app
+      },
+      {
+        test: /\.html$/,
+        loaders: ['html']
       }
     ],
     postloaders: [],
