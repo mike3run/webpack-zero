@@ -28,6 +28,11 @@ const common = {
     preloaders: [],
     loaders: [
       {
+        test: /\.sc?a?ss/,
+        loaders: ['style', 'css', 'sass'],
+        include: PATHS.app
+      },
+      {
         test: /\.css$/,
         loaders: ['style', 'css'],
         include: PATHS.app
@@ -44,6 +49,13 @@ const common = {
     ],
     postloaders: [],
     noParse: []
+  },
+  sassLoader: {
+    // Use this to fancy/import stuff prefix with ~
+    // example @import "~bootstrap"
+    includePaths: [
+      PATHS.node
+    ]
   }
 }
 
