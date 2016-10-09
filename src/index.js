@@ -1,3 +1,5 @@
+require('./styles.sass')
+
 const hello = require('./components/hello/hello.component');
 const app = document.createElement('div');
 

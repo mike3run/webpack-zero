@@ -28,7 +28,7 @@ const common = {
     preloaders: [],
     loaders: [
       {
-        test: /\.sc?a?ss/,
+        test: /\.s(a|c)ss/,
         loaders: ['style', 'css', 'sass'],
         include: PATHS.app
       },
