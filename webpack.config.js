@@ -51,12 +51,7 @@ const common = {
     noParse: []
   },
   sassLoader: {
-    // Use this to fancy/import stuff prefix with ~
-    // example @import "~bootstrap"
-    includePaths: [
-      PATHS.node, // node_modules
-      PATHS.styles // own styles to import logic on components
-    ]
+    includePaths: [ PATHS.styles ]
   }
 }
 
