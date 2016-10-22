@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 // Paths for webpack
-const PATHS = require('../webpack.paths')
+const PATHS = require('./webpack.paths')
 
 module.exports = {
   entry: {

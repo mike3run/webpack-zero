@@ -1,7 +1,7 @@
 // Basic webpack requirements
 const webpack = require('webpack')
 // Paths file
-const PATHS = require('../webpack.paths')
+const PATHS = require('./webpack.paths')
 
 module.exports = {
   devtool: 'eval-source-map',
