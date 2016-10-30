@@ -2,6 +2,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
+// POSTCSS
+const autoprefixer = require('autoprefixer');
 // Paths for webpack
 const PATHS = require('./webpack.paths')
 
@@ -29,7 +31,7 @@ module.exports = {
     loaders: [
       {
         test: /\.s(a|c)ss/,
-        loaders: ['style', 'css', 'sass'],
+        loaders: ['style', 'css', 'postcss', 'sass'],
         include: PATHS.app
       },
       {
@@ -49,6 +51,13 @@ module.exports = {
     ],
     postloaders: [],
     noParse: []
+  },
+  postcss: function () {
+    return [
+      autoprefixer({
+        browsers: ['last 2 versions']
+      })
+    ]
   },
   sassLoader: {
     includePaths: [ PATHS.styles ]
