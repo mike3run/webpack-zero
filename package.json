@@ -20,6 +20,7 @@
     "babel-preset-react": "^6.16.0",
     "clean-webpack-plugin": "^0.1.12",
     "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
     "manila-mixins": "^2.1.0",
@@ -28,6 +29,7 @@
     "postcss-loader": "^1.1.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2",
     "webpack-merge": "^0.14.1"
