@@ -23,7 +23,7 @@
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.4",
     "html-webpack-plugin": "^2.22.0",
-    "image-webpack-loader": "^2.0.0",
+    "image-webpack-loader": "^3.0.0",
     "manila-mixins": "^2.1.0",
     "modularscale-sass": "^2.1.1",
     "node-sass": "^3.10.1",
