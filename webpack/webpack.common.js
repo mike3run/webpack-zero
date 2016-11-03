@@ -54,7 +54,12 @@ module.exports = {
       },
       {
         test: /\.s(a|c)ss$/,
-        loaders: ['style', 'css', 'postcss', 'sass'],
+        loaders: [
+          'style',
+          'css?modules',
+          'postcss',
+          'sass'
+        ],
         include: PATHS.app
       },
       {
