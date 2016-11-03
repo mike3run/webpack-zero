@@ -2,20 +2,10 @@
 const webpack = require('webpack')
 // Paths file
 const PATHS = require('./webpack.paths')
+const parts = require('./libs/parts')
 
-module.exports = {
-  devtool: 'eval-source-map',
-  devServer: {
+module.exports = parts.devServer({
     contentBase: PATHS.build,
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
-    progress: true,
-    stats: 'errors-only',
     host: process.env.HOST,
     port: process.env.PORT
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
-}
+  })

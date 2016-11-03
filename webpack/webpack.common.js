@@ -2,6 +2,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
+// POSTCSS
+const autoprefixer = require('autoprefixer');
 // Paths for webpack
 const PATHS = require('./webpack.paths')
 
@@ -28,13 +30,36 @@ module.exports = {
     preloaders: [],
     loaders: [
       {
-        test: /\.s(a|c)ss/,
-        loaders: ['style', 'css', 'sass'],
+        test: /\.(jpe?g|svg|png|gif|mp4|mov|webm|mp3|pdf)$/,
+        loaders: ['url?limit=25000&name=[path][name].[hash].[ext]', 'image-webpack'],
+        include: PATHS.app
+      },
+      {
+        test: /\.woff2?$/,
+        loader: 'url',
+        query: {
+          name: 'font/[hash].[ext]',
+          limit: 5000,
+          mimetype: 'application/font-woff'
+        },
+        include: PATHS.app
+      },
+      {
+        test: /\.(ttf|eot)$/,
+        loader: 'file',
+        query: {
+          name: 'font/[hash].[ext]'
+        },
+        include: PATHS.app
+      },
+      {
+        test: /\.s(a|c)ss$/,
+        loaders: ['style', 'css', 'postcss', 'sass'],
         include: PATHS.app
       },
       {
         test: /\.css$/,
-        loaders: ['style', 'css'],
+        loaders: ['style', 'css', 'postcss'],
         include: PATHS.app
       },
       {
@@ -50,7 +75,36 @@ module.exports = {
     postloaders: [],
     noParse: []
   },
+  postcss: function () {
+    return [
+      autoprefixer({
+        browsers: ['last 2 versions']
+      })
+    ]
+  },
   sassLoader: {
     includePaths: [ PATHS.styles ]
+  },
+  imageWebpackLoader: {
+    mozjpeg: {
+      quality: 65
+    },
+    pngquant:{
+      quality: "65-90",
+      speed: 4
+    },
+    svgo:{
+      plugins: [
+        {
+          removeViewBox: false
+        },
+        {
+          removeEmptyAttrs: false
+        },
+        {
+         removeStyleElement : true
+        }
+      ]
+    }
   }
 }
