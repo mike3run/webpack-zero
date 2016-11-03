@@ -30,7 +30,7 @@ module.exports = {
     preloaders: [],
     loaders: [
       {
-        test: /\.(jpe?g|svg|png|gif)$/,
+        test: /\.(jpe?g|svg|png|gif|mp4|mov|webm|mp3)$/,
         loaders: ['url?limit=25000&name=[path][name].[hash].[ext]', 'image-webpack'],
         include: PATHS.app
       },
