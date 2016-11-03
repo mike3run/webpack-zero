@@ -30,18 +30,8 @@ module.exports = {
     preloaders: [],
     loaders: [
       {
-        test: /\.(jpe?g|png|gif)$/,
-        loaders: ['url?limit=25000', 'image-webpack'],
-        include: PATHS.app
-      },
-      {
-        test: /\.(jpe?g|png|gif)$/,
-        loaders: ['file?name=[path][name].[hash].[ext]', 'image-webpack'],
-        include: PATHS.app
-      },
-      {
-        test: /\.svg$/,
-        loaders: ['svg-url-loader?limit=25000', 'image-webpack'],
+        test: /\.(jpe?g|svg|png|gif)$/,
+        loaders: ['url?limit=25000&name=[path][name].[hash].[ext]', 'image-webpack'],
         include: PATHS.app
       },
       {
