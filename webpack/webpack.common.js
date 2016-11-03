@@ -30,7 +30,22 @@ module.exports = {
     preloaders: [],
     loaders: [
       {
-        test: /\.s(a|c)ss/,
+        test: /\.(jpe?g|png|gif)$/,
+        loaders: ['url?limit=25000', 'image-webpack'],
+        include: PATHS.app
+      },
+      {
+        test: /\.(jpe?g|png|gif)$/,
+        loaders: ['file?name=[path][name].[hash].[ext]', 'image-webpack'],
+        include: PATHS.app
+      },
+      {
+        test: /\.svg$/,
+        loaders: ['svg-url-loader?limit=25000', 'image-webpack'],
+        include: PATHS.app
+      },
+      {
+        test: /\.s(a|c)ss$/,
         loaders: ['style', 'css', 'postcss', 'sass'],
         include: PATHS.app
       },
@@ -61,5 +76,27 @@ module.exports = {
   },
   sassLoader: {
     includePaths: [ PATHS.styles ]
+  },
+  imageWebpackLoader: {
+    mozjpeg: {
+      quality: 65
+    },
+    pngquant:{
+      quality: "65-90",
+      speed: 4
+    },
+    svgo:{
+      plugins: [
+        {
+          removeViewBox: false
+        },
+        {
+          removeEmptyAttrs: false
+        },
+        {
+         removeStyleElement : true
+        } 
+      ]
+    }
   }
 }
