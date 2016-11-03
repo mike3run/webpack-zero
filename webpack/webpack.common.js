@@ -35,6 +35,24 @@ module.exports = {
         include: PATHS.app
       },
       {
+        test: /\.woff2?$/,
+        loader: 'url',
+        query: {
+          name: 'font/[hash].[ext]',
+          limit: 5000,
+          mimetype: 'application/font-woff'
+        },
+        include: PATHS.app
+      },
+      {
+        test: /\.(ttf|eot)$/,
+        loader: 'file',
+        query: {
+          name: 'font/[hash].[ext]'
+        },
+        include: PATHS.app
+      },
+      {
         test: /\.s(a|c)ss$/,
         loaders: ['style', 'css', 'postcss', 'sass'],
         include: PATHS.app
@@ -85,7 +103,7 @@ module.exports = {
         },
         {
          removeStyleElement : true
-        } 
+        }
       ]
     }
   }
