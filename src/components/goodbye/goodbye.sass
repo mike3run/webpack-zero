@@ -1,13 +1,18 @@
 @import "abstracts"
 
-.goodbye
+.container
   text-align: center
-  background: linear-gradient(rgba($black,0.4), rgba($black,0.4)),url('hero.jpg') no-repeat center / cover
+  background: 
+    color: $black
+    image: linear-gradient( rgba($black,0.4), rgba($black,0.4)), url('./hero.jpg') 
+    repeat: no-repeat 
+    position: center
+    size: cover
   min-height: 30vh
   display: flex
   align-items: center
   justify-content: center
   color: $white
 
-  h2
-    font-size: ms(4)
+.title
+  font-size: ms(4)

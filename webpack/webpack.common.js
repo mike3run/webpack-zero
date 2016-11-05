@@ -31,7 +31,7 @@ module.exports = {
     loaders: [
       {
         test: /\.(jpe?g|svg|png|gif|mp4|mov|webm|mp3|pdf)$/,
-        loaders: ['url?limit=25000&name=[path][name].[hash].[ext]', 'image-webpack'],
+        loaders: ['url?limit=25000&name=[name].[hash:base64:9].[ext]', 'image-webpack'],
         include: PATHS.app
       },
       {
@@ -54,7 +54,12 @@ module.exports = {
       },
       {
         test: /\.s(a|c)ss$/,
-        loaders: ['style', 'css', 'postcss', 'sass'],
+        loaders: [
+          'style',
+          'css?modules&localIdentName=[path][name]---[local]---[hash:base64:7]',
+          'postcss',
+          'sass'
+        ],
         include: PATHS.app
       },
       {
